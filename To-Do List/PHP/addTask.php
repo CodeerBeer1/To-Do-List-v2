@@ -9,6 +9,7 @@ $lists = $query->fetchAll();
 
 ?>
 
+<h2>Nieuwe Taak Toevoegen</h2>
 <form method="post" action="addTaskScript.php">
 
     <label>Naam</label>

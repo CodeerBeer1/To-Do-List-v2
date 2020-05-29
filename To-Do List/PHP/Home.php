@@ -10,6 +10,8 @@
 
 ?>
 
+<h1>To-Do List</h1>
+
 <h2>Lijsten</h2>
 <a href="addList.php"><button>Nieuwe Lijst</button></a>
 
@@ -43,6 +45,7 @@ while($row = $allLists->fetch(PDO::FETCH_ASSOC))
     <tr>
         <th>ID</th>
         <th>Naam</th>
+        <th>Status</th>
         <th>Lijst ID</th>
     </tr>
 <?php
@@ -53,9 +56,16 @@ while($row = $allTasks->fetch(PDO::FETCH_ASSOC))
    <tr>
         <td><?php echo $row['id'] ?></td>
         <td><?php echo $row['name'] ?></td>
+        <td>
+            <button id="status <?php echo $row["id"] ?>" onclick="changeStatus( <?php echo $row['id'] ?> )">
+                    <?php
+                        echo $row["status"];
+                    ?>
+            </button>
+        </td>
         <td><?php echo $row['list_id']?></td>
-        <td><a href="deleteList.php?id=<?php echo $row["id"] ?>"><button>Verwijder</button></a></td>
-        <td><a href="updateList.php?id=<?php echo $row["id"] ?>"><button>Wijzig naam</button></a></td>
+        <td><a href="deleteTask.php?id=<?php echo $row["id"] ?>"><button>Verwijder</button></a></td>
+        <td><a href="updateTask.php?id=<?php echo $row["id"] ?>"><button>Wijzig naam</button></a></td>
    </tr>
 
    <?php

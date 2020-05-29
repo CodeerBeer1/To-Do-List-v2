@@ -1,9 +1,9 @@
 <?php
 
-include "DBConn.php";
+include "DB-Conn.php";
 
 $id = $_GET["id"];
-$status = $pdo->query("SELECT * FROM `tasks` WHERE `id` = $id");
+$status = $conn->query("SELECT * FROM `tasks` WHERE `id` = $id");
 $statext = $status->fetch(PDO::FETCH_ASSOC);
 
 function changeStatus($conn, $idd, $statt)
@@ -34,7 +34,7 @@ function changeStatus($conn, $idd, $statt)
     
 }
 
-$end = changeStatus($pdo, $id, $statext);
+$end = changeStatus($conn, $id, $statext);
 
 echo $end;
 ?>

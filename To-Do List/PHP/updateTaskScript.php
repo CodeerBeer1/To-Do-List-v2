@@ -3,9 +3,9 @@
 include "DB-Conn.php";
 
 $id = $_GET["id"];
-$updatedName = $_POST["task"];
+$updatedName = $_POST["list"];
 
-$sql = "UPDATE `lists` SET `name` = ? WHERE id = ?";
+$sql = "UPDATE `tasks` SET `name` = ? WHERE id = ?";
 
 $query = $conn->prepare($sql);
 $query->execute(array($updatedName, $id));
