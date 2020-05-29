@@ -30,6 +30,7 @@ while($row = $allLists->fetch(PDO::FETCH_ASSOC))
         <td><?php echo $row['name'] ?></td>
         <td><a href="deleteList.php?id=<?php echo $row["id"] ?>"><button>Verwijder</button></a></td>
         <td><a href="updateList.php?id=<?php echo $row["id"] ?>"><button>Wijzig naam</button></a></td>
+        <td><button>Filter taken</button></td>
    </tr>
 
    <?php
