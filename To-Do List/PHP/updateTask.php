@@ -2,11 +2,13 @@
 
 include "DB-Conn.php";
 
-$id = $_GET["id"];
+$idTask = $_GET["id"];
 
 ?>
-<h2>Taak Wijzigen</h2>
-<form method="post" action="updateTaskScript.php?id=<?php echo $id ?>">
+
+<h2>Taak-naam Wijzigen</h2>
+
+<form method="post" action="updateTaskScript.php?id=<?php echo $idTask ?>">
 
     <label>Naam</label>
     <input name="task">

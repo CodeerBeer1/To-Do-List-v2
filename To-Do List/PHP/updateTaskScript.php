@@ -2,13 +2,13 @@
 
 include "DB-Conn.php";
 
-$id = $_GET["id"];
-$updatedName = $_POST["list"];
+$idTask = $_GET["id"];
+$updatedTaskName = $_POST["task"];
 
 $sql = "UPDATE `tasks` SET `name` = ? WHERE id = ?";
 
 $query = $conn->prepare($sql);
-$query->execute(array($updatedName, $id));
+$query->execute(array($updatedTaskName, $idTask));
 
 header("Location: Home.php");
 
