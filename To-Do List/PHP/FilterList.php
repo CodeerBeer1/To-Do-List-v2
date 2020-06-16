@@ -2,10 +2,12 @@
 
     include "DB-Conn.php";
 
+    $id = $_GET["id"];
+
     $sqlList = "SELECT * FROM lists";
     $allLists = $conn->query($sqlList);
 
-    $sqlTask = 'SELECT * FROM tasks';
+    $sqlTask = "SELECT * FROM `tasks` WHERE `list_id` = $id";
     $allTasks = $conn->query($sqlTask);
 
 ?>
@@ -41,7 +43,7 @@ while($row = $allLists->fetch(PDO::FETCH_ASSOC))
 
 <h2>Taken</h2>
 
-<a href="FilterStatusNDone.php"><button>Filteren op status</button></a>
+<a href="Home.php"><button>Filteren op status</button></a>
 <a href="addTask.php"><button>Nieuwe Taak</button></a>
 
 <table id="tasks-table" >
