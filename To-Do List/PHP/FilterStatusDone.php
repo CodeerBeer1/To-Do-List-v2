@@ -42,6 +42,7 @@ while($row = $allLists->fetch(PDO::FETCH_ASSOC))
 <h2>Taken</h2>
 
 <a href="Home.php"><button>Filteren op status</button></a>
+<a href="SortStatusDesc.php"><button>Sorteren op status</button></a>
 <a href="addTask.php"><button>Nieuwe Taak</button></a>
 
 <table id="tasks-table" >
