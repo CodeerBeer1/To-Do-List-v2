@@ -10,8 +10,12 @@
     $sqlTask = "SELECT * FROM `tasks` WHERE `list_id` = $id";
     $allTasks = $conn->query($sqlTask);
 
-?>
+    $dataList = $allLists->fetchAll(PDO::FETCH_ASSOC);
+    $dataTasks = $allTasks->fetchAll(PDO::FETCH_ASSOC);
 
+?>
+<html>
+<body>
 <h1>To-Do List</h1>
 
 <h2>Lijsten</h2>
@@ -23,7 +27,7 @@
         <th>Naam</th>
     </tr>
 <?php
-while($row = $allLists->fetch(PDO::FETCH_ASSOC))
+foreach($dataList as $row)
 {
     ?>
     
@@ -43,6 +47,7 @@ while($row = $allLists->fetch(PDO::FETCH_ASSOC))
 
 <h2>Taken</h2>
 
+<a href="Home.php"><button>Alle Taken</button></a>
 <a href="Home.php"><button>Filteren op status</button></a>
 <a href="SortStatusDesc.php"><button>Sorteren op status</button></a>
 <a href="addTask.php"><button>Nieuwe Taak</button></a>
@@ -55,7 +60,7 @@ while($row = $allLists->fetch(PDO::FETCH_ASSOC))
         <th>Lijst ID</th>
     </tr>
 <?php
-while($row = $allTasks->fetch(PDO::FETCH_ASSOC))
+foreach($dataTasks as $row)
 {
     ?>
     
@@ -79,5 +84,6 @@ while($row = $allTasks->fetch(PDO::FETCH_ASSOC))
 
 ?>
 </table>
-
+</body>
+</html>
 <script src="java.js"></script>
